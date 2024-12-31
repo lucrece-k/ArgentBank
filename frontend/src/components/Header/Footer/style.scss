@@ -1,0 +1,11 @@
+footer {
+  border-top: 2px solid lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 0 24px;
+  p {
+    margin: 0;
+    padding: 0;
+  }
+}

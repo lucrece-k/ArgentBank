@@ -1,6 +1,7 @@
 .Header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 5px 20px;
   img {
     width: 200px;
@@ -8,5 +9,7 @@
   a {
     font-weight: bold;
     color: #2c3e50;
+    text-decoration: none;
+    margin-left: 0.5rem;
   }
 }

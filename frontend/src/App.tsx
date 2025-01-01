@@ -1,21 +1,20 @@
-import Banner from "./components/Header/Banner/index.js";
-import Header from "./components/Header/index.js";
-import Info from "./components/Header/Info/index.js";
-import "./App.css";
-import Footer from "./components/Header/Footer/index.js";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home/index.tsx";
+import Layout from "./pages/Home/Layout/index.tsx";
+import SignIn from "./pages/SignIn/index.tsx";
+import User from "./pages/User/index.tsx";
 
 function App() {
   return (
-    <>
-      <Header />
-      <Banner />
-      <section className="sectionInfo">
-        <Info />
-        <Info />
-        <Info />
-      </section>
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/SignIn" element={<SignIn />} />
+          <Route path="/User" element={<User />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

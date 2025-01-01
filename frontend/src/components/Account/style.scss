@@ -1,0 +1,26 @@
+.Account {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  color: #2c3e50;
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border: 1px solid black;
+  h3,
+  p {
+    margin: 0;
+  }
+  button {
+    display: block;
+    border: none;
+    background-color: #00bc77;
+    color: #fff;
+    padding: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+
+    margin-top: 1rem;
+  }
+}

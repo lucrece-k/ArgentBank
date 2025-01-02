@@ -1,6 +1,11 @@
 .User {
   background-color: #12002b;
   color: white;
+  padding-block: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   .header {
     display: flex;
     flex-direction: column;
@@ -12,11 +17,44 @@
       font-size: 2em;
     }
     button {
-      border: none;
+      border-color: #00bc77;
       background-color: #00bc77;
       color: #fff;
       font-weight: bold;
       padding: 10px;
+      border-bottom-right-radius: 2px solid #00bc77 0;
+    }
+  }
+  .user-info {
+    background-color: white;
+    color: #12002b;
+    margin-bottom: 2rem;
+    p {
+      text-align: center;
+      margin: 0;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 1rem;
+      input {
+        color: #12002b;
+      }
+      input:n(2),
+      input:nth-of-type(3) {
+        background-color: red;
+      }
+      .save-cancel-button {
+        display: flex;
+        justify-content: space-between;
+        button {
+          border: none;
+          background-color: #00bc77;
+          color: white;
+          padding: 5px 40px;
+        }
+      }
     }
   }
 }

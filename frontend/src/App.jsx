@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home/index.tsx";
-import Layout from "./pages/Home/Layout/index.tsx";
-import SignIn from "./pages/SignIn/index.tsx";
-import User from "./pages/User/index.tsx";
+import Home from "./pages/Home/index.jsx";
+import Layout from "./pages/Home/Layout/index.jsx";
+import SignIn from "./pages/SignIn/index.jsx";
+import User from "./pages/User/index.jsx";
 
 function App() {
   return (

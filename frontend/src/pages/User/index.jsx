@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import Account from "../../components/Account";
 import "./style.scss";
+import acountData from "./account";
 function User() {
   const [showsection, setShowsection] = useState(true);
   useEffect(() => {}, [showsection]);
@@ -41,9 +42,17 @@ function User() {
           </form>
         </section>
       )}
-      <Account />
-      <Account />
-      <Account />
+      {acountData.map((account, id) => (
+        <ul>
+          <li key={account.id}>
+            <Account
+              title={account.title}
+              somme={account.somme}
+              sousTitre={account.sousTitre}
+            />
+          </li>
+        </ul>
+      ))}
     </div>
   );
 }

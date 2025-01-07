@@ -2,11 +2,11 @@ import "./style.scss";
 function Account({ title, somme, sousTitre }) {
   return (
     <section className="Account">
-      <div>
+      <li>
         <h3>{title} </h3>
-        <p>{somme}</p>
+        <p className="somme">{somme}</p>
         <p>{sousTitre}</p>
-      </div>
+      </li>
       <button>View transactions</button>
     </section>
   );

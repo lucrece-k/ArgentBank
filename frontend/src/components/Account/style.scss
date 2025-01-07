@@ -1,17 +1,28 @@
 .Account {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: white;
   color: #2c3e50;
-  width: 80%;
   margin: 0 auto;
   margin-bottom: 2rem;
   padding: 1.5rem;
   border: 1px solid black;
+  line-height: 30px;
+
+  h3 {
+    font-size: 1rem;
+    font-weight: normal;
+  }
   h3,
   p {
     margin: 0;
   }
+  .somme {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+
   button {
     display: block;
     border-color: #00bc77;
@@ -22,5 +33,6 @@
     font-weight: bold;
     border-bottom-right-radius: 2px solid #00bc77 0;
     margin-top: 1rem;
+    height: 10%;
   }
 }

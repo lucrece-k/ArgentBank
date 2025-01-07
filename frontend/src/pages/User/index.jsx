@@ -1,7 +1,7 @@
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Account from "../../components/Account";
 import "./style.scss";
-import acountData from "./account";
+import accountData from "../../account.json";
 function User() {
   const [showsection, setShowsection] = useState(true);
   useEffect(() => {}, [showsection]);
@@ -42,17 +42,16 @@ function User() {
           </form>
         </section>
       )}
-      {acountData.map((account, id) => (
-        <ul>
-          <li key={account.id}>
-            <Account
-              title={account.title}
-              somme={account.somme}
-              sousTitre={account.sousTitre}
-            />
-          </li>
-        </ul>
-      ))}
+      <ul>
+        {accountData.map((account) => (
+          <Account
+            key={account.id}
+            title={account.title}
+            somme={account.somme}
+            sousTitre={account.sousTitre}
+          />
+        ))}
+      </ul>
     </div>
   );
 }

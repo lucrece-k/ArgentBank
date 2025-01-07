@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import logo from "../../assets/images/argentBankLogo.webp";
+import logo from "../../../public/images/argentBankLogo.webp";
 import "./style.scss";
 function Header() {
   const location = useLocation();

@@ -41,10 +41,7 @@
       input {
         color: #12002b;
       }
-      input:n(2),
-      input:nth-of-type(3) {
-        background-color: red;
-      }
+
       .save-cancel-button {
         display: flex;
         justify-content: space-between;
@@ -56,5 +53,11 @@
         }
       }
     }
+  }
+  ul {
+    list-style-type: none;
+    width: 80%;
+    margin: auto;
+    padding: 0;
   }
 }

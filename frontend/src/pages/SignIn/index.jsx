@@ -38,14 +38,14 @@ function SignIn() {
       password: password,
     };
     sendSignInRequest(JSON.stringify(user)).then((response) => {
-      console.log(response.token);
+      console.log(response.body.token);
 
       if (!response.body.token || response.body.token === undefined) {
         console.log("Utilisateur unconnu");
         return;
       } else {
-        sessionStorage.setItem("token", response.token);
-        navigate("/user");
+        sessionStorage.setItem("token", response.body.token);
+        navigate("/User");
       }
     });
   }

@@ -3,16 +3,27 @@ import Account from "../../components/Account";
 import "./style.scss";
 import accountData from "../../account.json";
 import { useSelector, useDispatch } from "react-redux";
-import { updateUserName } from "../../redux/userNameSlice";
+import { updateUserName, fetchUserProfile } from "../../redux/userNameSlice";
+
 function User() {
   const [showsection, setShowsection] = useState(true);
   useEffect(() => {}, [showsection]);
-  const { firstName, userName, lastName, loading, error } = useSelector(
+  const { firstName, userName, lastName, loading, error, token } = useSelector(
     (state) => state.usernames
   );
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    if (token) {
+      dispatch(fetchUserProfile(token));
+    }
+  }, [dispatch, token]);
+
   const [newUserName, setNewUserName] = useState(userName);
+  useEffect(() => {
+    setNewUserName(userName);
+  }, [userName]);
+
   const handleSave = (e) => {
     e.preventDefault();
 
@@ -55,7 +66,7 @@ function User() {
                 type="text"
                 id="user-name"
                 name="user-name"
-                placeholder={userName}
+                placeholder={userName || ""}
                 onChange={(e) => setNewUserName(e.target.value)}
               />
             </div>
@@ -66,7 +77,7 @@ function User() {
                 type="text"
                 id="first-name"
                 name="first-name"
-                value={firstName}
+                value={firstName || ""}
                 readOnly
               />
             </div>
@@ -77,7 +88,7 @@ function User() {
                 type="text"
                 id="last name"
                 name="last-name"
-                value={lastName}
+                value={lastName || ""}
                 readOnly
               />
             </div>

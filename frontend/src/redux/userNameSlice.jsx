@@ -47,7 +47,7 @@ export const userNameSlice = createSlice({
       state.token = null;
     },
     loaginOk: (state, action) => {
-      state.token = action.payload.token;
+      state.token = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -57,6 +57,7 @@ export const userNameSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchUserProfile.fulfilled, (state, action) => {
+        console.log("API Response Data:", action.payload);
         state.loading = false;
         state.firstName = action.payload.firstName;
         state.lastName = action.payload.lastName;

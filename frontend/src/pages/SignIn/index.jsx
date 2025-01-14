@@ -2,12 +2,13 @@ import { useNavigate } from "react-router-dom";
 import "./style.scss";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import loaginOk from "../../redux/userNameSlice";
+import { loaginOk } from "../../redux/userNameSlice";
 function SignIn() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const apiSingin = "http://localhost:3001/api/v1/user/login";
 
   function verifyField() {

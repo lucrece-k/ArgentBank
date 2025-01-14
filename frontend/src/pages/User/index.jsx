@@ -33,11 +33,11 @@ function User() {
   }, [dispatch]);
 
   if (loading) {
-    return <p>Chargement...</p>;
+    return <p>Loading...</p>;
   }
 
   if (error) {
-    return <p>Erreur : {error}</p>;
+    return <p>Error : {error}</p>;
   }
   return (
     <div className="User">
@@ -56,7 +56,7 @@ function User() {
         <section className="user-info">
           <p>Edit user info</p>
           <form onSubmit={handleSave}>
-            <div>
+            <div className="label-input">
               <label htmlFor="user-name">User name:</label>
               <input
                 type="text"
@@ -65,22 +65,26 @@ function User() {
                 onChange={(e) => setNewUserName(e.target.value)}
               />
             </div>
-            <div>
+            <div className="label-input">
               <label htmlFor="first-name">First name:</label>
               <input
+                className="readOnly"
                 type="text"
                 id="first-name"
                 name="first-name"
                 value={firstName}
+                readOnly
               />
             </div>
-            <div>
+            <div className="label-input">
               <label htmlFor="last name">Last name:</label>
               <input
+                className="readOnly"
                 type="text"
                 id="last name"
                 name="last-name"
                 value={lastName}
+                readOnly
               />
             </div>
             <div className="save-cancel-button">

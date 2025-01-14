@@ -34,10 +34,20 @@ export const userNameSlice = createSlice({
     loading: false,
     error: null,
     userName: "",
+    token: null,
   },
   reducers: {
     updateUserName: (state, action) => {
       state.userName = action.payload.userName;
+    },
+    loagout: (state) => {
+      state.userName = "";
+      state.lastName = "";
+      state.userName = "";
+      state.token = null;
+    },
+    loaginOk: (state, action) => {
+      state.token = action.payload.token;
     },
   },
   extraReducers: (builder) => {
@@ -58,6 +68,6 @@ export const userNameSlice = createSlice({
   },
 });
 
-export const { updateUserName } = userNameSlice.actions;
+export const { updateUserName, loaginOk, loagout } = userNameSlice.actions;
 
 export default userNameSlice.reducer;

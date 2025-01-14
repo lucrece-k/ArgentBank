@@ -3,7 +3,7 @@ import Account from "../../components/Account";
 import "./style.scss";
 import accountData from "../../account.json";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchUserProfile, updateUserName } from "../../redux/userNameSlice";
+import { updateUserName } from "../../redux/userNameSlice";
 function User() {
   const [showsection, setShowsection] = useState(true);
   useEffect(() => {}, [showsection]);
@@ -24,13 +24,6 @@ function User() {
 
     setShowsection(!showsection);
   };
-
-  useEffect(() => {
-    const token = sessionStorage.getItem("token");
-    if (token) {
-      dispatch(fetchUserProfile(token));
-    }
-  }, [dispatch]);
 
   if (loading) {
     return <p>Loading...</p>;
@@ -62,6 +55,7 @@ function User() {
                 type="text"
                 id="user-name"
                 name="user-name"
+                placeholder={userName}
                 onChange={(e) => setNewUserName(e.target.value)}
               />
             </div>

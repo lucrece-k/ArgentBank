@@ -23,3 +23,17 @@
     }
   }
 }
+@media (max-width: 767px) {
+  .sectionInfo {
+    ul {
+      flex-direction: column;
+      align-items: center;
+      li {
+        width: initial;
+      }
+      h3 {
+        text-align: center;
+      }
+    }
+  }
+}

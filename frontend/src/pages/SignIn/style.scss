@@ -52,7 +52,17 @@
         cursor: pointer;
         color: white;
         font-weight: bold;
+        text-decoration: underline;
       }
+    }
+  }
+}
+@media (max-width: 767px) {
+  .SignIn {
+    section {
+      width: 300px;
+      margin: 48px 10px 0 10px;
+      padding: 1rem;
     }
   }
 }

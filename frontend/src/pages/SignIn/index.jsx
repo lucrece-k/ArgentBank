@@ -48,10 +48,8 @@ function SignIn() {
         console.log("Utilisateur unconnu");
         return;
       } else {
-        console.log("1");
-
         dispatch(loaginOk(response.body.token));
-        console.log("2");
+
         navigate("/User");
       }
     });

@@ -35,6 +35,10 @@ function User() {
 
     setShowsection(!showsection);
   };
+  const handleCancel = (e) => {
+    e.preventDefault();
+    setShowsection(!showsection);
+  };
 
   if (loading) {
     return <p>Loading...</p>;
@@ -92,11 +96,13 @@ function User() {
                 readOnly
               />
             </div>
-            <div className="save-cancel-button">
+            <div>
               <button>Save</button>
-              <button>Cancel</button>
             </div>
           </form>
+          <button className="cancel-button" onClick={handleCancel}>
+            Cancel
+          </button>
         </section>
       )}
       <ul>

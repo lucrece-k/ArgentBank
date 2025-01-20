@@ -45,9 +45,11 @@ export const userNameSlice = createSlice({
       state.lastName = "";
       state.userName = "";
       state.token = null;
+      localStorage.removeItem("token");
     },
     loaginOk: (state, action) => {
       state.token = action.payload;
+      localStorage.setItem("token", action.payload.token);
     },
   },
   extraReducers: (builder) => {

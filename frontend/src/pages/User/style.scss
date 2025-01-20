@@ -55,17 +55,23 @@
       .readOnly {
         background-color: rgb(236, 234, 234);
       }
-      .save-cancel-button {
-        display: flex;
-        justify-content: space-between;
-        button {
-          border: none;
-          background-color: #00bc77;
-          color: white;
-          padding: 5px 40px;
-          border-radius: 2px;
-        }
+
+      button {
+        border: none;
+        background-color: #00bc77;
+        color: white;
+        padding: 5px 40px;
+        border-radius: 2px;
       }
+    }
+    .cancel-button {
+      position: relative;
+      left: 150px;
+      bottom: 43px;
+      border: none;
+      background-color: #00bc77;
+      color: white;
+      padding: 5px 40px;
     }
   }
   ul {

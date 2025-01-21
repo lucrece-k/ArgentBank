@@ -5,14 +5,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { loagout } from "../../redux/userNameSlice";
 import { useEffect } from "react";
 function Header() {
-  const { userName, firstName, token } = useSelector(
-    (state) => state.usernames
-  );
+  const { userName, token } = useSelector((state) => state.usernames);
   const dispatch = useDispatch();
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
     if (storedToken && !token) {
+      console.log("Fetching profile with token:", storedToken);
+      dispatch(fetchUserProfile(storedToken));
     }
   }, [dispatch, token]);
 
@@ -35,7 +35,7 @@ function Header() {
             <i className="fa-solid fa-circle-user"></i>{" "}
           </Link>
           <Link to={"/User"}>
-            <span>{userName ? userName : firstName}</span>
+            <span>{userName}</span>
           </Link>
           <Link to={"/"} onClick={() => dispatch(loagout())}>
             <i className="fas fa-sign-out"></i>

@@ -10,7 +10,6 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route element={<Layout />}>
-          <Route path="/" element={<Home />} />
           <Route path="/SignIn" element={<SignIn />} />
           <Route
             path="/User"
@@ -20,6 +19,7 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route path="/" element={<Home />} />
         </Route>
       </Routes>
     </BrowserRouter>

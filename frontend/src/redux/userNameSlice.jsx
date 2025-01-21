@@ -49,7 +49,7 @@ export const userNameSlice = createSlice({
     },
     loaginOk: (state, action) => {
       state.token = action.payload;
-      localStorage.setItem("token", action.payload.token);
+      localStorage.setItem("token", action.payload);
     },
   },
   extraReducers: (builder) => {
@@ -63,6 +63,7 @@ export const userNameSlice = createSlice({
         state.loading = false;
         state.firstName = action.payload.firstName;
         state.lastName = action.payload.lastName;
+        state.userName = action.payload.userName;
       })
       .addCase(fetchUserProfile.rejected, (state, action) => {
         state.loading = false;

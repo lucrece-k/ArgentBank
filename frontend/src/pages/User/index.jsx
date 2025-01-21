@@ -24,9 +24,45 @@ function User() {
     setNewUserName(userName);
   }, [userName]);
 
+  const apiUserName = "http://localhost:3001/api/v1/user/profile";
+
+  async function changeUserName() {
+    if (!token) {
+      console.error(
+        "Token manquant : impossible de mettre à jour le nom d'utilisateur."
+      );
+      return;
+    }
+
+    try {
+      const response = await fetch(apiUserName, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ userName: newUserName }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        dispatch(updateUserName({ userName: newUserName }));
+        setShowsection(!showsection);
+      } else {
+        console.error(
+          "Erreur lors de la mise à jour :",
+          data.message || "Erreur inconnue"
+        );
+      }
+    } catch (error) {
+      console.error("Erreur lors de la requête:", error);
+    }
+  }
+
   const handleSave = (e) => {
     e.preventDefault();
-
+    changeUserName();
     dispatch(
       updateUserName({
         userName: newUserName,
@@ -70,7 +106,7 @@ function User() {
                 type="text"
                 id="user-name"
                 name="user-name"
-                placeholder={userName || ""}
+                placeholder={userName}
                 onChange={(e) => setNewUserName(e.target.value)}
               />
             </div>

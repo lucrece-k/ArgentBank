@@ -47,7 +47,7 @@ export const userNameSlice = createSlice({
       state.token = null;
       localStorage.removeItem("token");
     },
-    loaginOk: (state, action) => {
+    loginOk: (state, action) => {
       state.token = action.payload;
       localStorage.setItem("token", action.payload);
     },
@@ -59,7 +59,6 @@ export const userNameSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchUserProfile.fulfilled, (state, action) => {
-        console.log("API Response Data:", action.payload);
         state.loading = false;
         state.firstName = action.payload.firstName;
         state.lastName = action.payload.lastName;
@@ -72,6 +71,6 @@ export const userNameSlice = createSlice({
   },
 });
 
-export const { updateUserName, loaginOk, loagout } = userNameSlice.actions;
+export const { updateUserName, loginOk, loagout } = userNameSlice.actions;
 
 export default userNameSlice.reducer;

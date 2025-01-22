@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import logo from "/images/argentBankLogo.webp?url";
 import "./style.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { loagout } from "../../redux/userNameSlice";
+import { loagout, fetchUserProfile } from "../../redux/userNameSlice";
 import { useEffect } from "react";
 function Header() {
   const { userName, token } = useSelector((state) => state.usernames);

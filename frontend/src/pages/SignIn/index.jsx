@@ -2,10 +2,11 @@ import { useNavigate } from "react-router-dom";
 import "./style.scss";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { loaginOk } from "../../redux/userNameSlice";
+import { loginOk } from "../../redux/userNameSlice";
 function SignIn() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -13,7 +14,7 @@ function SignIn() {
 
   function verifyField() {
     if (username === "" || password === "") {
-      console.log("champ manquant");
+      setErrorMessage("Veuillez remplir tous les champs.");
       return false;
     }
     return true;
@@ -33,6 +34,7 @@ function SignIn() {
 
   function handledOnSubmit(e) {
     e.preventDefault();
+    setErrorMessage("");
     if (!verifyField()) {
       return;
     }
@@ -42,13 +44,11 @@ function SignIn() {
       password: password,
     };
     sendSignInRequest(JSON.stringify(user)).then((response) => {
-      console.log(response.body.token);
-
       if (!response.body.token || response.body.token === undefined) {
-        console.log("Utilisateur unconnu");
+        setErrorMessage("Utilisateur inconnu ou informations incorrectes.");
         return;
       } else {
-        dispatch(loaginOk(response.body.token));
+        dispatch(loginOk(response.body.token));
 
         navigate("/User");
       }
@@ -80,6 +80,7 @@ function SignIn() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
+          {errorMessage && <p className="error-login">{errorMessage}</p>}
           <div className="Remember">
             <input type="checkbox" name="Remember" id="Remember" />
             <label htmlFor="Remember">Remember me</label>

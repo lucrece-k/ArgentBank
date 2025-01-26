@@ -11,7 +11,6 @@ function Header() {
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
     if (storedToken && !token) {
-      console.log("Fetching profile with token:", storedToken);
       dispatch(fetchUserProfile(storedToken));
     }
   }, [dispatch, token]);
@@ -23,7 +22,7 @@ function Header() {
       {!token ? (
         <nav>
           {" "}
-          <Link to={"/"}>
+          <Link to={"/"} title="home">
             <i className="fa-solid fa-circle-user"></i>
           </Link>
           <Link to={"/SignIn"}>Sign in</Link>{" "}
@@ -31,10 +30,10 @@ function Header() {
       ) : (
         <nav>
           {" "}
-          <Link to={"/"}>
+          <Link to={"/"} title="home">
             <i className="fa-solid fa-circle-user"></i>{" "}
           </Link>
-          <Link to={"/User"}>
+          <Link to={"/User"} title="user page">
             <span>{userName}</span>
           </Link>
           <Link to={"/"} onClick={() => dispatch(loagout())}>

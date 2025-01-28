@@ -14,7 +14,7 @@ function SignIn() {
 
   function verifyField() {
     if (username === "" || password === "") {
-      setErrorMessage("Veuillez remplir tous les champs.");
+      setErrorMessage("Please complete all fields.");
       return false;
     }
     return true;
@@ -45,7 +45,7 @@ function SignIn() {
     };
     sendSignInRequest(JSON.stringify(user)).then((response) => {
       if (!response.body.token || response.body.token === undefined) {
-        setErrorMessage("Utilisateur inconnu ou informations incorrectes.");
+        setErrorMessage("Unknown user or incorrect information.");
         return;
       } else {
         dispatch(loginOk(response.body.token));

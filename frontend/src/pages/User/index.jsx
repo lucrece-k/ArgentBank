@@ -28,9 +28,7 @@ function User() {
 
   async function changeUserName() {
     if (!token) {
-      console.error(
-        "Token manquant : impossible de mettre à jour le nom d'utilisateur."
-      );
+      console.error("Token missing: Unable to update username.");
       return;
     }
 
@@ -50,13 +48,10 @@ function User() {
         dispatch(updateUserName({ userName: newUserName }));
         setShowsection(!showsection);
       } else {
-        console.error(
-          "Erreur lors de la mise à jour :",
-          data.message || "Erreur inconnue"
-        );
+        console.error("Error during update:", data.message || "Unknown error");
       }
     } catch (error) {
-      console.error("Erreur lors de la requête:", error);
+      console.error("Error during query:", error);
     }
   }
 

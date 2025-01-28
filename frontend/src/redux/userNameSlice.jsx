@@ -15,9 +15,7 @@ export const fetchUserProfile = createAsyncThunk(
 
       const data = await response.json();
       if (!response.ok) {
-        throw new Error(
-          data.message || "Erreur lors de la récupération du profil"
-        );
+        throw new Error(data.message || "Error retrieving profile");
       }
       return data.body;
     } catch (error) {
@@ -66,7 +64,7 @@ export const userNameSlice = createSlice({
       })
       .addCase(fetchUserProfile.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload || "Erreur inconnue";
+        state.error = action.payload || "Unknown error";
       });
   },
 });
